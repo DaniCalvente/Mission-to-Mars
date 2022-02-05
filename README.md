@@ -1,6 +1,6 @@
-## OUT OF EARTH'S ORBIT
+## MISSION TO MARS
 ## Description
-Out of Earth's Orbit is a game where the player has to move a spaceship horizontally and vertically in the lower third of the screen and avoid collision with the incoming asteroids that appear from the top of the screen and move to the bottom. The game ends when the spaceship collides with an asteroid, and the scored is calculated on based on the number of dodged asteroids.
+Mission to Mars is a game where the player has to move a spaceship horizontally and vertically in the lower third of the screen and avoid collision with the incoming asteroids that appear from the top of the screen and move to the bottom. The game ends when the spaceship collides with an asteroid, and the scored is calculated on based on the number of dodged asteroids.
 ## MVP
 - The game has a spaceship that moves horizontally and vertically.
 - Asteroids appear randomly from the top of the screen.
