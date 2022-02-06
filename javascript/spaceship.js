@@ -8,6 +8,7 @@ class Spaceship {
         this.height = 180;
         this.img = new Image()
         this.img.src = "./images/spaceship.png"
+        this.spaceshipSpeed = 20;
     }
 
     // spaceship methods
@@ -15,8 +16,18 @@ class Spaceship {
          ctx.drawImage( this.img, this.x, this.y, this.width, this.height)
     }
 
-    spaceshipMove = () => {
 
+    // quiero dar movimiento a la nave
+    spaceshipMovement = (event) => {
+        if (event.key === "ArrowRight") {
+            this.x = this.x + this.spaceshipSpeed
+         } else if ( event.key === "ArrowLeft") {
+            this.x = this.x - this.spaceshipSpeed
+         } else if ( event.key === "ArrowUp") {
+            this.y = this.y - this.spaceshipSpeed 
+         } else if ( event.key === "ArrowDown" ) {
+            this.y = this.y + this.spaceshipSpeed
+         }
     }
    
 

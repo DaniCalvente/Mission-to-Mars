@@ -3,8 +3,7 @@
 let splashScreen = document.querySelector("#splash-screen")
 let canvas = document.querySelector("#my-canvas")
 let ctx = canvas.getContext("2d")
-
-
+let newGame;
 
 // * STATE MANAGEMENT FUNCTIONS
 const startGame = () => {
@@ -14,8 +13,8 @@ const startGame = () => {
    canvas.style.display = "flex";
 
    // starting game
-   let newGame = new Game() 
-   // console.log(newGame)
+   newGame = new Game() 
+   console.log(newGame)
    newGame.gameLoop()
 
 }
@@ -28,3 +27,9 @@ const startGame = () => {
 
 let startButton = document.querySelector("#start-btn")
 startButton.addEventListener("click", startGame)
+
+
+// quiero asignar las flechas del teclado para mover la nave
+document.addEventListener("keydown", (event) => {
+   newGame.spaceship.spaceshipMovement(event)
+  })
