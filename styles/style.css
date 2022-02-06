@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    background-size: cover;
+}
+
+#my-canvas {
+    background-color: darkgray;
+    
+}
+
+#start-btn, #restart-btn {
+    width: 250px;
+    height: 100px;
+    font-weight: bolder;
+    background-color: grey;
+    color: darkred;
+    padding: 20px;
+    font-size: 30px;
+    margin-top: 40px;
+    border-radius: 20px;
+    
+     
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+  }
+
+  #my-canvas, #gameover-screen {
+    display: none;
+  }

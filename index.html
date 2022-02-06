@@ -5,27 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission to Mars</title>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
+<body background="./images/background1.jpg">
 
     <div class="container">
 
         <!-- SPLASH SCREEN -->
         <div id="splash-screen" class="container">
-          <img src="" width="" alt="">
+          <img src="./images/mission-to-mars.png" width= "600" alt="mission-to-mars">
+          <section>
+            <img src="./images/spaceship.png" width="400">
+            
+          </section>
           <button id="start-btn">Start!</button>
         </div>
         
         <!-- GAME SCREEN -->
-        <canvas id="my-canvas" width="400" height="600"></canvas>
-        
+        <canvas id="my-canvas" width="600" height="900"></canvas>
+       
+
         <!-- GAME OVER SCREEN -->
         <div id="gameover-screen" class="container">
-          <img src="" width="" alt="">
+          <img src="./images/game-over1.png" width="400" alt="game-over1">
           <button id="restart-btn">Play Again!</button>
         </div>
     
       </div>
+
+      <script src="./javascript/main.js"></script>
+      <script src="./javascript/game.js"></script>
+      <script src="./javascript/spaceship.js"></script>
     
 </body>
 </html>
