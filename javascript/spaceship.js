@@ -4,8 +4,8 @@ class Spaceship {
         // spaceship properties
         this.x = canvas.width / 3;
         this.y = canvas.height - 200;
-        this.width = 180;
-        this.height = 180;
+        this.width = 160;
+        this.height = 160;
         this.img = new Image()
         this.img.src = "./images/spaceship.png"
         this.spaceshipSpeed = 20;
