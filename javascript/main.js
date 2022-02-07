@@ -1,6 +1,7 @@
 // * GLOBAL VARIABLES
 
 let splashScreen = document.querySelector("#splash-screen")
+let gameOverScreen = document.querySelector("#gameover-screen")
 let canvas = document.querySelector("#my-canvas")
 let ctx = canvas.getContext("2d")
 let newGame;
@@ -33,3 +34,6 @@ startButton.addEventListener("click", startGame)
 document.addEventListener("keydown", (event) => {
    newGame.spaceship.spaceshipMovement(event)
   })
+
+  let playAgainButton = document.querySelector("#restart-btn")
+  playAgainButton.addEventListener("click", startGame)

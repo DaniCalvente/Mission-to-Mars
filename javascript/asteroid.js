@@ -1,13 +1,12 @@
 class Asteroid {
 
-    constructor() {
-        this.x = 0;
+    constructor(posXParam) {
+        this.x = posXParam;
         this.y = 0;
         this.width = 70;
         this.height = 70;
         this.img = new Image()
-        this.img.src = "../images/asteroid2.png"
-
+        this.img.src = "../images/asteroid2.png";
     }
 
     drawAsteroid = () => {
@@ -15,7 +14,7 @@ class Asteroid {
     }
 
     asteroidMove = () => {
-        this.y = this.y + 2.5
+        this.y = this.y + 2
     }
 
 }   
