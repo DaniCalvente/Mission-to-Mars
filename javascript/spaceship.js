@@ -19,13 +19,13 @@ class Spaceship {
 
     // quiero dar movimiento a la nave
     spaceshipMovement = (event) => {
-        if (event.key === "ArrowRight") {
+        if (event.key === "ArrowRight" && this.x <= canvas.width - this.width ) {
             this.x = this.x + this.spaceshipSpeed
-         } else if ( event.key === "ArrowLeft") {
+         } else if ( event.key === "ArrowLeft"  && this.x >= 0) {
             this.x = this.x - this.spaceshipSpeed
-         } else if ( event.key === "ArrowUp") {
+         } else if ( event.key === "ArrowUp" && this.y >= canvas.height / 2) {
             this.y = this.y - this.spaceshipSpeed 
-         } else if ( event.key === "ArrowDown" ) {
+         } else if ( event.key === "ArrowDown" && this.y <= canvas.height - this.height) {
             this.y = this.y + this.spaceshipSpeed
          }
     }
