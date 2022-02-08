@@ -8,8 +8,17 @@ class Game {
     this.asteroidArr = [new Asteroid(canvas.width / 2)];
     this.asteroid = new Asteroid();
     this.astSeparation = 250;
+    this.shot = undefined;
+    this.isGameOn = true;
+    
   }
 
+  shootingLaser = ( ) => {
+
+      this.shot = new Shot(this.spaceship.x, this.spaceship.y)
+
+  }
+  
   spawningAsteroid = () => {
     let lastAsteroid = this.asteroidArr[this.asteroidArr.length - 1];
     if (lastAsteroid.y > 0 + this.astSeparation) {
@@ -29,7 +38,7 @@ class Game {
       this.spaceship.height + this.spaceship.y > eachAsteroidParam.y
     ) 
     {
-      
+     console.log("¨collition") 
       this.isGameOn = false;
       canvas.style.display = "none";
       gameOverScreen.style.display = "flex";
@@ -46,8 +55,8 @@ class Game {
 
   // all the methods of the game.
   gameLoop = () => {
-    // console.log("game is working!")
-
+     console.log("game is working!")
+    
     // 1. clear canvas
     this.clearCanvas();
 
@@ -63,7 +72,10 @@ class Game {
       this.checkShipAstCollision(eachAsteroid);
     });
 
-    
+    // hacer mover el shot si existe
+    if ( this.shot !== undefined) {
+      this.shot.shotMove()
+    }
 
     // 3. draw the elements
     this.drawBackground();
@@ -72,7 +84,15 @@ class Game {
       eachAsteroid.drawAsteroid();
     });
 
+    if ( this.shot !== undefined ){
+      this.shot.drawShot()
+    }
+    
+
     // 4. recursion
-    requestAnimationFrame(this.gameLoop);
+    if (this.isGameOn === true) {
+      requestAnimationFrame(this.gameLoop);
+    }
+    
   };
 }
