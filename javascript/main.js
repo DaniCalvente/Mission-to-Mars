@@ -9,12 +9,13 @@ let newGame;
 // * STATE MANAGEMENT FUNCTIONS
 const startGame = () => {
   // removing splash-screen and appearing canvas.
+  gameOverScreen.style.display = "none"
   splashScreen.style.display = "none";
   canvas.style.display = "flex";
 
   // starting game
   newGame = new Game();
-  // console.log(newGame);
+  // console.log("¨juego iniciando");
   newGame.gameLoop();
 };
 
@@ -25,8 +26,8 @@ startButton.addEventListener("click", startGame);
 
 // quiero asignar las flechas del teclado para mover la nave
 document.addEventListener("keydown", (event) => {
-  if (event.code === "Space") {
-    newGame.shootingLaser(event)
+  if (event.key === " ") {
+    newGame.shootingLaser()
   } else {
      newGame.spaceship.spaceshipMovement(event);
   }
