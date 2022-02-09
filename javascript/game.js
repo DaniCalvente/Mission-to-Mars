@@ -8,10 +8,24 @@ class Game {
     this.astSeparation = 100;
     this.shot = undefined;
     this.isGameOn = true;
+    this.score = 0;
   }
 
+  /*levelUp = () => {
+    if (this.score % 1000 == 0 ){
+      this.asteroidArr.asteroidSpeed += 2;
+    }
+  }*/
+
+  astDisappearPoints = (eachAsteroidParam) => {
+    if (eachAsteroidParam.y === canvas.height) {
+      this.score += 50;
+      scoreDom.innerText = this.score;
+      this.asteroidArr.shift();
+    }
+  };
+
   shootingLaser = () => {
-    // console.log("pressing space")
     this.shot = new Shot(
       this.spaceship.x + this.spaceship.width / 3,
       this.spaceship.y
@@ -26,20 +40,20 @@ class Game {
       this.shot.y < eachAsteroidParam.y + eachAsteroidParam.height &&
       this.shot.height + this.shot.y > eachAsteroidParam.y
     ) {
-      console.log("laser collision");
       this.shot = undefined;
       const astIndex = this.asteroidArr.indexOf(eachAsteroidParam);
-      this.asteroidArr.splice(astIndex, 1)
+      this.asteroidArr.splice(astIndex, 1);
+      this.score = this.score + 100;
+      scoreDom.innerText = this.score;
     }
   };
 
   spawningAsteroid = () => {
     let lastAsteroid = this.asteroidArr[this.asteroidArr.length - 1];
     if (lastAsteroid.y > 0 + this.astSeparation) {
-      // here I add a new asteroid
       let randomX = Math.random() * (canvas.width - lastAsteroid.width);
       let newAsteroid = new Asteroid(randomX);
-      // randomX = Math.floor(randomX);
+
       this.asteroidArr.push(newAsteroid);
     }
   };
@@ -51,10 +65,10 @@ class Game {
       this.spaceship.y < eachAsteroidParam.y + eachAsteroidParam.height &&
       this.spaceship.height + this.spaceship.y > eachAsteroidParam.y
     ) {
-      // console.log("collition");
       this.isGameOn = false;
       canvas.style.display = "none";
       gameOverScreen.style.display = "flex";
+      scoreBoard.style.display = "none";
     }
   };
 
@@ -66,11 +80,8 @@ class Game {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
-
   // all the methods of the game.
   gameLoop = () => {
-    // console.log("game is working!");
-
     // 1. clear canvas
     this.clearCanvas();
 
@@ -79,18 +90,19 @@ class Game {
       eachAsteroid.asteroidMove();
     });
     this.spawningAsteroid();
-    // this.spaceship.updatePosition()
+    this.spaceship.updatePosition();
 
     this.asteroidArr.forEach((eachAsteroid) => {
-      //chequear colision entre pollito y pipe.
       this.checkShipAstCollision(eachAsteroid);
       this.checkShotAstCollision(eachAsteroid);
+      this.astDisappearPoints(eachAsteroid);
+      // this.levelUp(eachAsteroid)
     });
 
-    // hacer mover el shot si existe
     if (this.shot !== undefined) {
       this.shot.shotMove();
     }
+    
 
     // 3. draw the elements
     this.drawBackground();
@@ -102,7 +114,6 @@ class Game {
     if (this.shot !== undefined) {
       this.shot.drawShot();
     }
-
 
     // 4. recursion
     if (this.isGameOn === true) {

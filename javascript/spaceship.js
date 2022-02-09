@@ -1,45 +1,41 @@
 class Spaceship {
+  constructor() {
+    this.x = canvas.width / 3;
+    this.y = canvas.height - 200;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.width = 75;
+    this.height = 100;
+    this.img = new Image();
+    this.img.src = "./images/spaceship.png";
+  }
 
-    constructor() {
-        // spaceship properties
-        this.x = canvas.width / 3;
-        this.y = canvas.height - 200;
-        // this.speedX = 0;
-        // this.speedY = 0;
-        this.width = 75;
-        this.height = 100;
-        this.img = new Image()
-        this.img.src = "./images/spaceship.png"
-        this.spaceshipSpeed = 20;
+  drawSpaceship = () => {
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+  };
+
+  updatePosition() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x > canvas.width - this.width || this.x < 0) {
+      this.speedX = 0;
+    } else if (this.y < 0 || this.y > canvas.height - this.height) {
+      this.speedY = 0;
     }
+  }
 
-    // spaceship methods
-    drawSpaceship = () => {
-         ctx.drawImage( this.img, this.x, this.y, this.width, this.height)
+  spaceshipMovement = (event) => {
+    if (event.key === "ArrowRight" && this.x <= canvas.width - this.width) {
+      this.speedX = 2;
     }
-
-    /* updatePosition(){
-      this.x += this.speedX
-      this.y += this.speedY
-    } */
-
-
-    // quiero dar movimiento a la nave
-    spaceshipMovement = (event) => {
-        if (event.key === "ArrowRight" && this.x <= canvas.width - this.width -this.spaceshipSpeed) {
-         this.x = this.x + this.spaceshipSpeed
-            // this.speedX = 3;
-         } if ( event.key === "ArrowLeft"  && this.x >= 0 + this.spaceshipSpeed) {
-         this.x = this.x - this.spaceshipSpeed
-           // this.speedX = -3;
-         } if ( event.key === "ArrowUp" && this.y >= canvas.height / 2) {
-         this.y = this.y - this.spaceshipSpeed
-           // this.speedY = 3; 
-         } if ( event.key === "ArrowDown" && this.y <= canvas.height - this.height) {
-         this.y = this.y + this.spaceshipSpeed
-           // this.speedY = -3;
-         }
+    if (event.key === "ArrowLeft" && this.x >= 0 + this.speedX) {
+      this.speedX = -2;
     }
-   
-
+    if (event.key === "ArrowUp" && this.y >= canvas.height / 2) {
+      this.speedY = -2;
+    }
+    if (event.key === "ArrowDown" && this.y <= canvas.height - this.height) {
+      this.speedY = 2;
+    }
+  };
 }

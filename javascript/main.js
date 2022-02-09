@@ -3,19 +3,23 @@
 let splashScreen = document.querySelector("#splash-screen");
 let gameOverScreen = document.querySelector("#gameover-screen");
 let canvas = document.querySelector("#my-canvas");
+let scoreBoard = document.querySelector("#scoreboard");
 let ctx = canvas.getContext("2d");
 let newGame;
+let scoreDom = document.querySelector("#score-accumulator")
 
 // * STATE MANAGEMENT FUNCTIONS
 const startGame = () => {
   // removing splash-screen and appearing canvas.
-  gameOverScreen.style.display = "none"
+  gameOverScreen.style.display = "none";
   splashScreen.style.display = "none";
   canvas.style.display = "flex";
+  scoreBoard.style.display = "flex";
+
 
   // starting game
   newGame = new Game();
-  // console.log("¨juego iniciando");
+  scoreDom.innerText = 0;
   newGame.gameLoop();
 };
 
@@ -27,18 +31,11 @@ startButton.addEventListener("click", startGame);
 // quiero asignar las flechas del teclado para mover la nave
 document.addEventListener("keydown", (event) => {
   if (event.key === " ") {
-    newGame.shootingLaser()
+    newGame.shootingLaser();
   } else {
-     newGame.spaceship.spaceshipMovement(event);
+    newGame.spaceship.spaceshipMovement(event);
   }
- 
 });
-
-// quiero disparar laser con tecla espacio
-//document.querySelector("keydown", (event) => {
-   
-//}) 
-
 
 // solo funciona la primera vez
 let playAgainButton = document.querySelector("#restart-btn");

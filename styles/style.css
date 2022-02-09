@@ -13,6 +13,12 @@ body{
     
 }
 
+#scoreboard {
+  color: aliceblue;
+  font-size: medium;
+  display: none;
+}
+
 #start-btn, #restart-btn {
     width: 250px;
     height: 100px;
