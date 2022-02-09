@@ -5,7 +5,7 @@ class Game {
     this.background.src = "./images/outer-space2.jpg";
     this.spaceship = new Spaceship();
     this.asteroidArr = [new Asteroid(canvas.width / 2)];
-    this.astSeparation = 250;
+    this.astSeparation = 100;
     this.shot = undefined;
     this.isGameOn = true;
   }
@@ -66,6 +66,7 @@ class Game {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
+
   // all the methods of the game.
   gameLoop = () => {
     // console.log("game is working!");
@@ -101,6 +102,7 @@ class Game {
     if (this.shot !== undefined) {
       this.shot.drawShot();
     }
+
 
     // 4. recursion
     if (this.isGameOn === true) {

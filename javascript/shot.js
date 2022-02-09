@@ -2,11 +2,11 @@ class Shot {
   constructor(posXParam, posYParam) {
     this.x = posXParam;
     this.y = posYParam;
-    this.width = 30;
-    this.height = 60;
+    this.width = 40;
+    this.height = 80;
     this.img = new Image();
     this.img.src = "./images/laser-shot.png";
-    this.shotSpeed = 4;
+    this.shotSpeed = 25;
   }
 
   drawShot = () => {

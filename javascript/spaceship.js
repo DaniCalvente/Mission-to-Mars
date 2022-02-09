@@ -6,8 +6,8 @@ class Spaceship {
         this.y = canvas.height - 200;
         // this.speedX = 0;
         // this.speedY = 0;
-        this.width = 100;
-        this.height = 130;
+        this.width = 75;
+        this.height = 100;
         this.img = new Image()
         this.img.src = "./images/spaceship.png"
         this.spaceshipSpeed = 20;
@@ -26,10 +26,10 @@ class Spaceship {
 
     // quiero dar movimiento a la nave
     spaceshipMovement = (event) => {
-        if (event.key === "ArrowRight" && this.x <= canvas.width - this.width ) {
+        if (event.key === "ArrowRight" && this.x <= canvas.width - this.width -this.spaceshipSpeed) {
          this.x = this.x + this.spaceshipSpeed
             // this.speedX = 3;
-         } if ( event.key === "ArrowLeft"  && this.x >= 0) {
+         } if ( event.key === "ArrowLeft"  && this.x >= 0 + this.spaceshipSpeed) {
          this.x = this.x - this.spaceshipSpeed
            // this.speedX = -3;
          } if ( event.key === "ArrowUp" && this.y >= canvas.height / 2) {
