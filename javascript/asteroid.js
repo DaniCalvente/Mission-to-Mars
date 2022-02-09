@@ -5,7 +5,7 @@ class Asteroid {
     this.width = 50;
     this.height = 50;
     this.img = new Image();
-    this.img.src = "../images/asteroid2.png";
+    this.img.src = "./images/asteroid2.png";
     this.asteroidSpeed = 2;
   }
 
