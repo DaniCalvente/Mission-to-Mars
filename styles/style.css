@@ -9,13 +9,14 @@ body {
 
 #my-canvas {
   background-color: darkgray;
+  margin-right: 30px;
 }
 
 #scoreboard {
   color: aliceblue;
-  font-size: medium;
+  font-size: x-large;
   display: none;
-  width: 100px;
+  width: 150px;
 }
 
 .game-container {
@@ -27,7 +28,7 @@ body {
 
 #start-btn,
 #restart-btn {
-  width: 125px;
+  width: 150px;
   height: 65px;
   font-weight: bolder;
   background-color: grey;
@@ -36,6 +37,14 @@ body {
   font-size: 20px;
   border-radius: 120px;
   text-align: center;
+  justify-content: center;
+  
+  
+}
+#start-btn:hover, #restart-btn:hover {
+  transform: scale(1.2);
+  transition-duration: 1s; 
+  
 }
 
 .container {
@@ -55,9 +64,15 @@ body {
   flex-direction: row;
 }
 .instructions p {
+  width: 250px;
+  font-size: 20px;
   background-color: grey;
   font-weight: bold;
-  color: darkred;
+  color: black;
   font-style: normal;
   border-radius: 25px;
+  text-align: center;
+}
+.instructions span {
+  color: darkred;
 }
