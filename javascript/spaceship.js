@@ -19,8 +19,10 @@ class Spaceship {
     this.y += this.speedY;
     if (this.x > canvas.width - this.width || this.x < 0) {
       this.speedX = 0;
-    } else if (this.y < 0 || this.y > canvas.height - this.height) {
+    } 
+    if (this.y < 0 || this.y > canvas.height - this.height) {
       this.speedY = 0;
+     
     }
   }
 
@@ -31,7 +33,7 @@ class Spaceship {
     if (event.key === "ArrowLeft" && this.x >= 0 + this.speedX) {
       this.speedX = -2;
     }
-    if (event.key === "ArrowUp" && this.y >= canvas.height / 2) {
+    if (event.key === "ArrowUp" && this.y >= 0) {
       this.speedY = -2;
     }
     if (event.key === "ArrowDown" && this.y <= canvas.height - this.height) {

@@ -9,13 +9,10 @@ class Game {
     this.shot = undefined;
     this.isGameOn = true;
     this.score = 0;
+    this.levelUp = 0;
   }
 
-  /*levelUp = () => {
-    if (this.score % 1000 == 0 ){
-      this.asteroidArr.asteroidSpeed += 2;
-    }
-  }*/
+ 
 
   astDisappearPoints = (eachAsteroidParam) => {
     if (eachAsteroidParam.y === canvas.height) {
@@ -45,6 +42,7 @@ class Game {
       this.asteroidArr.splice(astIndex, 1);
       this.score = this.score + 100;
       scoreDom.innerText = this.score;
+      
     }
   };
 
@@ -53,7 +51,12 @@ class Game {
     if (lastAsteroid.y > 0 + this.astSeparation) {
       let randomX = Math.random() * (canvas.width - lastAsteroid.width);
       let newAsteroid = new Asteroid(randomX);
-
+      if (this.score >= 1000){
+        newAsteroid.asteroidSpeed = 3;
+      }
+      if (this.score >= 2000){
+        newAsteroid.asteroidSpeed = 4;
+      }
       this.asteroidArr.push(newAsteroid);
     }
   };
@@ -89,6 +92,7 @@ class Game {
     this.asteroidArr.forEach((eachAsteroid) => {
       eachAsteroid.asteroidMove();
     });
+
     this.spawningAsteroid();
     this.spaceship.updatePosition();
 
@@ -96,12 +100,14 @@ class Game {
       this.checkShipAstCollision(eachAsteroid);
       this.checkShotAstCollision(eachAsteroid);
       this.astDisappearPoints(eachAsteroid);
-      // this.levelUp(eachAsteroid)
+     
     });
 
     if (this.shot !== undefined) {
       this.shot.shotMove();
     }
+
+    
     
 
     // 3. draw the elements
