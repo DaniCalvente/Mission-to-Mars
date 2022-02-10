@@ -6,7 +6,7 @@ let canvas = document.querySelector("#my-canvas");
 let scoreBoard = document.querySelector("#scoreboard");
 let ctx = canvas.getContext("2d");
 let newGame;
-let scoreDom = document.querySelector("#score-accumulator")
+let scoreDom = document.querySelector("#score-accumulator");
 
 // * STATE MANAGEMENT FUNCTIONS
 const startGame = () => {
@@ -16,9 +16,11 @@ const startGame = () => {
   canvas.style.display = "flex";
   scoreBoard.style.display = "flex";
 
-
   // starting game
   newGame = new Game();
+  //this.soundTrack.play();
+  // this.soundTrack.loop = true;
+  // this.soundTrack.playbackRate = 2;
   scoreDom.innerText = 0;
   newGame.gameLoop();
 };

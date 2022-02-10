@@ -9,6 +9,10 @@ class Game {
     this.shot = undefined;
     this.isGameOn = true;
     this.score = 0;
+    this.shotSound = new Audio("./sounds/laser-shot.mp3");
+    this.explosionSound = new Audio("./sounds/explosion.mp3");
+    this.shipExplosionSound = new Audio("./sounds/ship-explosion.mp3");
+    //this.soundTrack = new Audio("./sounds/space-soundtrack.mp3");
   }
 
   astDisappearPoints = (eachAsteroidParam) => {
@@ -24,6 +28,7 @@ class Game {
       this.spaceship.x + this.spaceship.width / 3,
       this.spaceship.y
     );
+    this.shotSound.play();
   };
 
   checkShotAstCollision = (eachAsteroidParam) => {
@@ -37,6 +42,7 @@ class Game {
       this.shot = undefined;
       const astIndex = this.asteroidArr.indexOf(eachAsteroidParam);
       this.asteroidArr.splice(astIndex, 1);
+      this.explosionSound.play();
       this.score = this.score + 100;
       scoreDom.innerText = this.score;
     }
@@ -70,8 +76,12 @@ class Game {
       this.spaceship.height + this.spaceship.y > eachAsteroidParam.y
     ) {
       this.isGameOn = false;
+      
+      this.shipExplosionSound.play();
+      //this.soundTrack.pause();
       canvas.style.display = "none";
       gameOverScreen.style.display = "flex";
+
      // scoreBoard.style.display = "none";
     }
   };
