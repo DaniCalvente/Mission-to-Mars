@@ -13,27 +13,35 @@
 
         <!-- SPLASH SCREEN -->
         <div id="splash-screen" class="container">
-          <img src="./images/mission-to-mars.png" width= "600" alt="mission-to-mars">
-          <section>
-            <img src="./images/spaceship2.png" width="400">
-          </section>
-          <button id="start-btn">PLAY GAME</button>
+          <img src="./images/mission-to-mars.png" width= "400" alt="mission-to-mars">
+          <div class="instructions">
+            <img src="./images/spaceship2.png" width="250">
+           <p>ksdfgkjhfdlglds
+             <br>
+             sdhgdkhkbjdsfkj
+             <br>
+             flkdvdfnlkvnldf
+             <br>
+             ksdjgfkjdskfhdh
+           </p>
+          </div>
+          <button id="start-btn">START</button>
         </div>
 
         
          
         <!-- GAME SCREEN -->
         <div id="game-screen" class="game-container">
-         <div id="scoreboard">
+        <canvas id="my-canvas" width="400" height="550"></canvas>
+        <div id="scoreboard">
           <p id="score">Score = <span id="score-accumulator">0</span></p>
         </div>
-        <canvas id="my-canvas" width="600" height="850"></canvas>
        </div>
 
         <!-- GAME OVER SCREEN -->
         <div id="gameover-screen" class="container">
-          <img src="./images/game-over1.png" width="400" alt="game-over1">
-          <button id="restart-btn">PLAY AGAIN</button>
+          <img src="./images/game-over1.png" width="300" alt="game-over1">
+          <button id="restart-btn">RESTART</button>
         </div>
     
       </div>

@@ -1,46 +1,63 @@
-body{
-    margin: 0;
-    background-image: url("../images/background1.jpg"); 
-    background-size: cover;
-    /* las dos siguientes lineas me corrigen el problema de scroll de pantalla */
-    height: 100vh;
-    overflow: hidden;
-    
+body {
+  margin: 0;
+  background-image: url("../images/background1.jpg");
+  background-size: cover;
+  /* las dos siguientes lineas me corrigen el problema de scroll de pantalla */
+  height: 100vh;
+  overflow: hidden;
 }
 
 #my-canvas {
-    background-color: darkgray;
-    
+  background-color: darkgray;
 }
 
 #scoreboard {
   color: aliceblue;
   font-size: medium;
   display: none;
+  width: 100px;
 }
 
-#start-btn, #restart-btn {
-    width: 250px;
-    height: 100px;
-    font-weight: bolder;
-    background-color: grey;
-    color: darkred;
-    padding: 20px;
-    font-size: 30px;
-    margin-top: 40px;
-    border-radius: 120px;
-    
-     
-  }
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
-  }
+#start-btn,
+#restart-btn {
+  width: 125px;
+  height: 65px;
+  font-weight: bolder;
+  background-color: grey;
+  color: darkred;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 120px;
+  text-align: center;
+}
 
-  #my-canvas, #gameover-screen {
-    display: none;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+#my-canvas,
+#gameover-screen {
+  display: none;
+}
+.instructions {
+  display: flex;
+  flex-direction: row;
+}
+.instructions p {
+  background-color: grey;
+  font-weight: bold;
+  color: darkred;
+  font-style: normal;
+  border-radius: 25px;
+}

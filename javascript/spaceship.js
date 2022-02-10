@@ -4,8 +4,8 @@ class Spaceship {
     this.y = canvas.height - 200;
     this.speedX = 0;
     this.speedY = 0;
-    this.width = 75;
-    this.height = 100;
+    this.width = 50;
+    this.height = 75;
     this.img = new Image();
     this.img.src = "./images/spaceship.png";
   }
@@ -28,16 +28,16 @@ class Spaceship {
 
   spaceshipMovement = (event) => {
     if (event.key === "ArrowRight" && this.x <= canvas.width - this.width) {
-      this.speedX = 2;
+      this.speedX = 1.5;
     }
     if (event.key === "ArrowLeft" && this.x >= 0 + this.speedX) {
-      this.speedX = -2;
+      this.speedX = -1.5;
     }
     if (event.key === "ArrowUp" && this.y >= 0) {
-      this.speedY = -2;
+      this.speedY = -1.5;
     }
     if (event.key === "ArrowDown" && this.y <= canvas.height - this.height) {
-      this.speedY = 2;
+      this.speedY = 1.5;
     }
   };
 }

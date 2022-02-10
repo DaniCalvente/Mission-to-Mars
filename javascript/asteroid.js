@@ -2,8 +2,8 @@ class Asteroid {
   constructor(posXParam) {
     this.x = posXParam;
     this.y = 0;
-    this.width = 50;
-    this.height = 50;
+    this.width = 40;
+    this.height = 40;
     this.img = new Image();
     this.img.src = "./images/asteroid2.png";
     this.asteroidSpeed = 2;
