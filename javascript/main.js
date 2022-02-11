@@ -18,9 +18,9 @@ const startGame = () => {
 
   // starting game
   newGame = new Game();
-  //this.soundTrack.play();
-  // this.soundTrack.loop = true;
-  // this.soundTrack.playbackRate = 2;
+  newGame.soundTrack.play();
+  newGame.soundTrack.loop = true;
+  newGame.soundTrack.playbackRate = 2;
   scoreDom.innerText = 0;
   newGame.gameLoop();
 };
@@ -29,8 +29,6 @@ const startGame = () => {
 
 let startButton = document.querySelector("#start-btn");
 startButton.addEventListener("click", startGame);
-
-// quiero asignar las flechas del teclado para mover la nave
 document.addEventListener("keydown", (event) => {
   if (event.key === " ") {
     newGame.shootingLaser();
@@ -38,7 +36,5 @@ document.addEventListener("keydown", (event) => {
     newGame.spaceship.spaceshipMovement(event);
   }
 });
-
-// solo funciona la primera vez
 let playAgainButton = document.querySelector("#restart-btn");
 playAgainButton.addEventListener("click", startGame);
