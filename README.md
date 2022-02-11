@@ -1,6 +1,6 @@
 ## MISSION TO MARS
 ## Description
-Mission to Mars is a game where the player has to move a spaceship horizontally and vertically in the lower third of the screen and avoid collision with the incoming asteroids that appear from the top of the screen and move to the bottom. The game ends when the spaceship collides with an asteroid, and the scored is calculated on based on the number of dodged asteroids.
+Mission to Mars is a game where the player has to move a spaceship using the Arrow keys (up, down, right, left) and avoid collision with the incoming asteroids that appear from the top of the screen and move to the bottom. The game ends when the spaceship collides with an asteroid, and the scored is calculated on based on the number of dodged or destroyed asteroids.
 ## MVP
 - The game has a spaceship that moves horizontally and vertically.
 - Asteroids appear randomly from the top of the screen.
@@ -9,7 +9,8 @@ Mission to Mars is a game where the player has to move a spaceship horizontally 
 - The score will be display on the game screen.
 
 ### Backlog
-- The game will end after three collisions.
+- Implement shooting fuction.
+- Add audio to the game.
 - Shields will come from the top of the screen. If one collected, the spaceship will be protected in the next collision.
  
 ## Data Structure

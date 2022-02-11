@@ -14,6 +14,6 @@ class Asteroid {
   };
 
   asteroidMove = () => {
-    this.y = this.y + this.asteroidSpeed
+    this.y = this.y + this.asteroidSpeed;
   };
 }
